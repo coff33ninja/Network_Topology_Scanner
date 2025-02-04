@@ -1,6 +1,6 @@
 # Network scanning
 scapy>=2.5.0
-nmap-python>=0.7.1
+python-nmap>=0.7.1
 netifaces>=0.11.0
 
 # Database
