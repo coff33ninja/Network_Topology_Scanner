@@ -1,7 +1,6 @@
 TODO List for Remaining Components:
-1. Network Map Components:
+1. Network Map Components: (Did these but not fully sure if it'll work)
 TODO: Create the following components:
-- NetworkEdge.tsx: Component for connections between nodes
 - NetworkEdge.tsx for connection visualization
 - NetworkTopology.tsx for layout algorithms
 - NetworkSearch.tsx for advanced search functionality
