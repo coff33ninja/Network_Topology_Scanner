@@ -1,0 +1,15 @@
+# Network scanning
+scapy>=2.5.0
+nmap-python>=0.7.1
+netifaces>=0.11.0
+
+# Database
+sqlite3-api>=2.0.1
+
+# API communication
+requests>=2.31.0
+websockets>=11.0.3
+
+# Utilities
+python-dotenv>=1.0.0
+schedule>=1.2.0

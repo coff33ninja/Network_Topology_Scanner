@@ -1,0 +1,81 @@
+# Database Schema Documentation
+Created on: 2024-01-09
+
+## Overview
+The SQLite3 database schema is designed to support network topology scanning, device tracking, and user management.
+
+## Core Tables
+
+### 1. devices
+- id: INTEGER PRIMARY KEY
+- mac_address: TEXT UNIQUE
+- ip_address: TEXT
+- hostname: TEXT
+- device_type: TEXT
+- location_id: INTEGER
+- last_seen: TIMESTAMP
+- is_active: BOOLEAN
+- created_at: TIMESTAMP
+- updated_at: TIMESTAMP
+
+### 2. device_types
+- id: INTEGER PRIMARY KEY
+- name: TEXT UNIQUE
+- icon: TEXT
+- default_ports: TEXT
+- default_protocols: TEXT
+- ui_rules: TEXT (JSON)
+
+### 3. services
+- id: INTEGER PRIMARY KEY
+- device_id: INTEGER
+- port: INTEGER
+- protocol: TEXT
+- service_name: TEXT
+- is_active: BOOLEAN
+- last_checked: TIMESTAMP
+
+### 4. locations
+- id: INTEGER PRIMARY KEY
+- name: TEXT
+- description: TEXT
+- network_range: TEXT
+- created_at: TIMESTAMP
+
+### 5. users
+- id: INTEGER PRIMARY KEY
+- username: TEXT UNIQUE
+- password_hash: TEXT
+- role: TEXT
+- last_login: TIMESTAMP
+- created_at: TIMESTAMP
+
+### 6. scan_history
+- id: INTEGER PRIMARY KEY
+- device_id: INTEGER
+- scan_time: TIMESTAMP
+- status: TEXT
+- details: TEXT (JSON)
+
+## Indexes
+- devices_mac_idx ON devices(mac_address)
+- devices_ip_idx ON devices(ip_address)
+- services_device_port_idx ON services(device_id, port)
+
+## Foreign Keys
+- devices.location_id -> locations.id
+- services.device_id -> devices.id
+- scan_history.device_id -> devices.id
+
+## JSON Structures
+
+### Device Type UI Rules
+```json
+{
+  "allow_wol": boolean,
+  "allow_remote_access": boolean,
+  "display_options": {
+    "show_in_map": boolean,
+    "show_services": boolean
+  }
+}

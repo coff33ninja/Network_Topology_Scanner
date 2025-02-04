@@ -1,0 +1,55 @@
+# Network Topology Scanner & Management System Overview
+Created on: 2024-01-09
+
+## System Description
+This system is a modular network topology scanner with a centralized Core UI that allows multi-location monitoring using distributed Python and Node.js nodes. It provides in-depth scanning, real-time device tracking, and cross-referenced validation using an SQLite3 database.
+
+## Key Features
+1. Multi-node Support
+   - Collect and manage data from multiple servers or locations
+   - Distributed architecture for scalability
+
+2. Device Management
+   - Wake-on-LAN (WoL) capabilities
+   - Remote power management
+   - IP:Port direct access to services
+
+3. Monitoring Features
+   - Always-online monitoring with downtime alerts
+   - Scheduled speed tests
+   - Network performance tracking
+   - Self-hosted & remote tool detection (Anydesk, RustDesk, RDP, VNC)
+
+4. Scanning Capabilities
+   - Open port detection
+   - Service identification
+   - Protocol recognition (SSH, HTTP, SMB, FTP)
+   - Custom port scanning
+
+5. Core UI Features
+   - Graphical network mapping
+   - Dynamic UI adaptation
+   - Direct service access links
+   - Historical data visualization
+
+6. Security Features
+   - Role-based access control
+   - Remote command execution
+   - API contract validation
+   - Error handling and fallbacks
+
+## Technology Stack
+- Backend: Python (Network Scanning) + Node.js (API)
+- Frontend: React
+- Database: SQLite3
+- Real-time Updates: WebSockets
+
+## Project Structure
+📂 Network_Topology_Scanner
+ ├── 📂 docs                # Documentation & planning
+ ├── 📂 backend            # Backend services
+ ├── 📂 frontend           # Frontend application
+ ├── 📂 database           # Database files
+ └── 📂 scripts            # Utility scripts
+
+For detailed information about specific components, please refer to their respective documentation files in the docs directory.
